@@ -1,49 +1,49 @@
+class CustomAlert {
+    constructor(options) {
+        this.text = options.text || '';
+        this.aceptText = options.aceptText || 'Aceptar';
+        this.callback = options.callback || null;
+        this.title = options.title || '';
+        this.createAlert();
+    }
 
-	//Alerta Simple
-	class CustomAlert {
-		constructor(options) {
-			this.text = options.text || '';
-			this.aceptText = options.aceptText || 'Aceptar';
-			this.callback = options.callback || null;
-			this.title = options.title || '';
-			this.createAlert();
-		}
-	
-		createAlert() {
-			$('body').append('<div id="container"></div>');
-			$('#container').addClass('alert-content');
-			$('.alert-content').html(`
-				<div class="modal" id="miModal" tabindex="-1">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title">${this.title}</h5>
-							</div>
-							<div class="modal-body">
-								<p>${this.text}.</p>
-							</div>
-							<div class="modal-footer">
-								<button type="button" id="confirmButton" class="btn btn-primary" data-bs-dismiss="modal">${this.aceptText}</button>
-							</div>
-						</div>
-					</div>
-				</div>`
-			);
-	
-			var myModal = new bootstrap.Modal(document.getElementById('miModal'));
-			myModal.toggle();
-	
-			$('#confirmButton').click(() => {
-				$('.alert-content').hide('slow');
-				$('#container').html('');
-				$('#container').remove();
-	
-				if (this.callback != null) {
-					this.callback();
-				}
-			});
-		}
-	}
+    createAlert() {
+        var parentBody = window.parent.document.body;
+        $(parentBody).append('<div id="container"></div>');
+        $('#container', parentBody).addClass('alert-content');
+        $('.alert-content', parentBody).html(`
+            <div class="modal" id="miModal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">${this.title}</h5>
+                        </div>
+                        <div class="modal-body">
+                            <p>${this.text}.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="confirmButton" class="btn btn-primary" data-bs-dismiss="modal">${this.aceptText}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>`
+        );
+
+        var myModal = new bootstrap.Modal(document.getElementById('miModal'));
+        myModal.show();
+
+        $('#confirmButton', parentBody).click(() => {
+            $('.alert-content', parentBody).hide('slow');
+            $('#container', parentBody).html('');
+            $('#container', parentBody).remove();
+
+            if (this.callback != null) {
+                this.callback();
+            }
+        });
+    }
+}
+
 
 	class CustomFlotAlert {
 		constructor(options) {
