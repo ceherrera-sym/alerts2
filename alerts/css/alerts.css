@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+.alert-content{	
+  	position: absolute;
+    z-index: 1000;
+    background-color: rgba(0,0,0,0.5);
+    width: 100%;
+}
+
+.alert-alert {
+	background:white;
+	width: 30%;
+	margin-left: auto;
+ 	margin-right: auto;
+ 	margin-top:50px;
+ 	top:50px;
+ 	position: sticky;
+ 	border-radius: 5px;
+}
+
+#flotAlert{
+    z-index: 10000;
+    width:40%;
+    border-radius: 5px;
+    min-height: 35px;
+    display: none;
+    box-shadow: -7px 6px 12px 0px rgba(0,0,0,0.67);
+}
+
+#flotAlert div{
+    position: relative;
+    margin: 5px;
+}
+
+
+
