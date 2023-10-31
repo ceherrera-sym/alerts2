@@ -61,11 +61,14 @@ class CustomFlotAlert {
 		window.parent.parent.parent.$('body').prepend(`
 				<div class="alert alert-${this.color} alert-dismissible fade shadow show" id="flotAlert" role="alert">
 					${this.text}
-					<button type="button" id="closeBtnFloatAlert" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					<button type="button" id="closeBtnFloatAlert" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="padding: 10px 10px;position: relative;"></button>
 				</div>`);
 
 		window.parent.parent.parent.$('#flotAlert').css('position', 'fixed');
 		window.parent.parent.parent.$('#flotAlert').css('cursor', 'pointer');
+		window.parent.parent.parent.$('#flotAlert').css('z-index', '100000');
+		window.parent.parent.parent.$('#flotAlert').css('padding', '1rem');
+
 		if (this.horizontalAlign == 'center') {
 			window.parent.parent.parent.$('#flotAlert').css({
 				'left': '50%',
