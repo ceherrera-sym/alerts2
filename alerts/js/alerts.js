@@ -10,9 +10,9 @@
 		}
 	
 		createAlert() {
-			$('body').append('<div id="container"></div>');
-			$('#container').addClass('alert-content');
-			$('.alert-content').html(`
+			window.parent.parent.parent.$('body').append('<div id="container"></div>');
+			window.parent.parent.parent.$('#container').addClass('alert-content');
+			window.parent.parent.parent.$('.alert-content').html(`
 				<div class="modal" id="miModal" tabindex="-1">
 					<div class="modal-dialog">
 						<div class="modal-content">
@@ -30,13 +30,12 @@
 				</div>`
 			);
 	
-			var myModal = new bootstrap.Modal(document.getElementById('miModal'));
+			var myModal = new bootstrap.Modal(window.parent.parent.parent.document.getElementById('miModal'));
 			myModal.toggle();
 	
-			$('#confirmButton').click(() => {
-				$('.alert-content').hide('slow');
-				$('#container').html('');
-				$('#container').remove();
+			window.parent.parent.parent.$('#confirmButton').click(() => {
+				
+				window.parent.parent.parent.$('#container').remove();
 	
 				if (this.callback != null) {
 					this.callback();
