@@ -29,7 +29,7 @@ class CustomAlert {
             </div>`
         );
 
-        var myModal = new bootstrap.Modal(document.getElementById('miModal'));
+        var myModal = new window.parent.bootstrap.Modal(document.getElementById('miModal'));
         myModal.show();
 
         $('#confirmButton', parentBody).click(() => {
