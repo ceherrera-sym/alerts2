@@ -67,6 +67,7 @@
 			
 			$('#flotAlert').css('position', 'fixed');
 			$('#flotAlert').css('cursor', 'pointer');
+			$('#flotAlert').css('z-index', '20000000');
 			if (this.horizontalAlign == 'center') {
 				$('#flotAlert').css({
 					'left': '50%',
