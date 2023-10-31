@@ -109,7 +109,7 @@
 	
 	class CustomConfirm {
 		constructor(options) {
-			
+			this.title = options.title || '';
 			this.text = options.text;
 			this.aceptText = options.aceptText || 'Aceptar';
 			this.declineText = options.declineText || 'Cancelar';
