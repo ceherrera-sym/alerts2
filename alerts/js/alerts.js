@@ -58,6 +58,7 @@ class CustomFlotAlert {
 	}
 
 	createAlert() {
+		window.parent.parent.parent.$('#flotAlert').remove();
 		window.parent.parent.parent.$('body').prepend(`
 				<div class="alert alert-${this.color} alert-dismissible fade shadow show" id="flotAlert" role="alert">
 					${this.text}
